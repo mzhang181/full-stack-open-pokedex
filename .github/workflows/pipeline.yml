@@ -37,13 +37,13 @@ jobs:
           echo "$SKIP"
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
-        if: ${{ github.event_name == 'push' && !SKIP }}
+        if: ${{ github.event_name == 'push' && !env.SKIP }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
       - name: deploy heroku
         uses: akhileshns/heroku-deploy@v3.12.12
-        if: ${{ github.event_name == 'push' && !SKIP }}
+        if: ${{ github.event_name == 'push' && !env.SKIP }}
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "fso-poke"
