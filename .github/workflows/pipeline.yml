@@ -32,7 +32,7 @@ jobs:
           wait-on: http://localhost:5000
       - name: check for skip
         env:
-          SKIP: ${{ contains('#skip', join(toJson(github.event.commits.*.message))) }}
+          SKIP: ${{ contains(join(toJson(github.event.commits.*.message)), '#skip') }}
         run: |
           echo "$SKIP"
       - name: Bump version and push tag
