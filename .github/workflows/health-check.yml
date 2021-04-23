@@ -1,16 +1,16 @@
-name: Deployment health check
+#name: Deployment health check
 
-on:
-  schedule:
-    - cron: '* * * * *'
+#on:
+  #schedule:
+    #- cron: '* * 1-31 * *'
 
-jobs:
-  health_check:
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Check the deployed service URL
-      uses: jtalk/url-health-check-action@v1.5
-      with:
-        url: "https://fso-poke.herokuapp.com/health"
-        max-attempts: 2
-        retry-delay: 5s
+#jobs:
+  #health_check:
+    #runs-on: ubuntu-20.04
+    #steps:
+    #- name: Check the deployed service URL
+      #uses: jtalk/url-health-check-action@v1.5
+      #with:
+        #url: "https://fso-poke.herokuapp.com/health"
+        #max-attempts: 2
+        #retry-delay: 5s
